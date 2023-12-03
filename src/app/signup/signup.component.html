@@ -1,0 +1,36 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+
+<div id="fback"><div class="girisback"></div><div class="kayitback"></div></div>
+
+<div id="textbox">
+  <div class="toplam">
+    <div class="left">
+      <div id="ic">
+        <h2>Sign Up</h2>
+        <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled.</p>
+        <form id="girisyap" name="signup_form" id="signup_form" method="post" enctype="multipart/form-data" onsubmit="return false;">
+
+          <div class="yarim form-group">
+            <label class="control-label" for="inputNormal">Username</label>
+            <input type="text" name="signup_username" id="signup_username"  cols="50" rows="10" [(ngModel)]="signupObj.username">
+          </div>
+        <div class="yarim sn form-group">
+          <label class="control-label" for="inputNormal">Full Name</label>
+          <input type="text" name="field_1" id="field_1" value=""  cols="50" rows="10" [(ngModel)]="signupObj.fullname">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="inputNormal">Email</label>
+        <input type="text" name="signup_email" id="signup_email"  cols="50" rows="10" [(ngModel)]="signupObj.email">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputNormal">Password</label>
+      <input type="password" name="signup_password" id="signup_password" value=""  cols="50" rows="10" [(ngModel)]="signupObj.password" >
+  </div>
+
+</form>
+<button id="signup_submit" (click)="onSignUp()">Signup</button>
+<button id="moveright">Login</button>
+</div>
+</div>
+</div>
+</div>

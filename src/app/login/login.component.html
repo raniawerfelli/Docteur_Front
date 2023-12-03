@@ -1,0 +1,27 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+
+<div id="fback"><div class="girisback"></div><div class="kayitback"></div></div>
+
+<div id="textbox">
+  <div class="toplam">
+    <div class="right">
+      <div id="ic">
+        <h2>Login</h2>
+        <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled.</p>
+        <form name="login-form" id="girisyap" id="sidebar-user-login" method="post" onsubmit="return false;">
+    
+          <div class="form-group">
+            <label class="control-label" for="inputNormal">Username</label>
+            <input type="text" name="userName"  cols="50" rows="10" [(ngModel)]="loginObj.username">
+          </div>
+        <div class="form-group soninpt">
+          <label class="control-label" for="inputNormal">Password</label>
+          <input type="password" name="pwd"  cols="50" rows="10" [(ngModel)]="loginObj.password">
+      </div>
+      </form>
+       <button id="girisbtn" (click)="onLogin()">Login</button>
+    <button id="moveleft">Sign Up</button>
+    </div>
+    </div>
+  </div>
+</div>
