@@ -42,9 +42,9 @@ export class SignupMedecinComponent {
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      tel: ['', Validators.required],
+      tel: ['', [Validators.pattern(/^[0-9]{8}$/),Validators.required]],
       latitude: ['', Validators.required],
-      mdp:['',Validators.required],
+      mdp:['',[Validators.required,Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/)]],
       longitude: ['', Validators.required],
       prixvisite: ['', Validators.required],
       specialites: [this.specialites, Validators.required]
@@ -79,9 +79,15 @@ export class SignupMedecinComponent {
         this.form.value.role="medecin"
         console.log(this.form.value)
     this.ajouterMedecin();
-    this.route.navigate(["/home"]);
+    this.route.navigate(["/login"]);
       }else{
-        alert("les donnes sont fausses")
+        Object.keys(this.form.controls).forEach(field => {
+          const control = this.form.get(field);
+          if (control && !control.valid) {
+            const fieldName = field
+            alert(`Le champ ${fieldName} n'est pas valide.`);
+          }
+        });
       }
    }
    public getSpecialite(): Specialite[] {
@@ -111,8 +117,9 @@ this.service.addSpecialite(this.f.value).subscribe((data)=>{
 console.log(data)
     },
 (error: HttpErrorResponse) => {
- // alert(error.message);
-  console.log(error.message)
+  if(error.status===409){
+    alert("le medecin exist deja")
+  }
 })
   }
   onChangeSpecialite(label: string) {

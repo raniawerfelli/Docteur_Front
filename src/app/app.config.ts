@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { SocialAuthServiceConfig } from '@abacritt/angularx-social-login/socialauth.service';
+import { provideToastr } from 'ngx-toastr';
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient()]
+  providers: [provideRouter(routes),provideHttpClient(),provideToastr()]
 };

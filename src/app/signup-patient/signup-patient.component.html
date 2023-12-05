@@ -6,17 +6,17 @@
         <form  [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="grid-container">
             <div class="field input-field">
-              <input type="text" placeholder="nom" formControlName="nom" [(ngModel)]="form.value.nom">
+              <input type="text" placeholder="nom" formControlName="nom" [(ngModel)]="user_patient.nom">
             </div><br>
             <div class="field input-field">
-              <input type="text" placeholder="prenom" formControlName="prenom">
+              <input type="text" placeholder="prenom" formControlName="prenom" [(ngModel)]="user_patient.prenom">
             </div><br>
             <div class="field input-field">
               <input type="email" placeholder="email" formControlName="email">
             </div><br>
             <div class="field input-field">
                 <input type="password" placeholder="password" formControlName="mdp">
-              </div><br>
+              </div><div>nécessite au moins 8 caractères avec au moins un caractère alphabétique, un chiffre et un caractère spécia</div><br>
             <div class="field input-field">
                 <input type="number" placeholder="téléphone" formControlName="tel">
             </div><br>

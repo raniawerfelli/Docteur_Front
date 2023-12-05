@@ -23,14 +23,21 @@ export class LoginComponent implements OnInit {
     private auth:AuthService){
       this.form=this.formbuilder.group({
         email:["",[Validators.email,Validators.required]],
-        mdp:['',Validators.required]
+        mdp:['',[Validators.required
+      ]] 
       })
   }
   login() {
-    if(this.form.valid){
-    this.getUtilisateur(this.form.value.email,this.form.value.mdp);
-    }else{
-      alert("Veuillez remplir tous les champs")
+    if (this.form.valid) {
+      this.getUtilisateur(this.form.value.email, this.form.value.mdp);
+    } else {
+      Object.keys(this.form.controls).forEach(field => {
+        const control = this.form.get(field);
+        if (control && !control.valid) {
+          const fieldName = field === 'email' ? 'Email' : 'Mot de passe';
+          alert(`Le champ ${fieldName} n'est pas valide.`);
+        }
+      });
     }
   }
   getUtilisateur(email:string,mdp:string){
@@ -48,10 +55,13 @@ export class LoginComponent implements OnInit {
     },
     (e: HttpErrorResponse)=>{
       if(e.status===404){
-        alert("verifier vos mot de passe ou email")
+        alert("email incorrect")
+      }else{
+        if(e.status===401){
+          alert("mot de passe incorrect")
+        }
       }
 console.log(e.message)
     })
   }
- 
 }

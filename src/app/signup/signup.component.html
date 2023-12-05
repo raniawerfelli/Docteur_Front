@@ -3,43 +3,28 @@
       <div class="form login">
           <div class="form-content">
               <header>Sign Up</header>
-              <form autocomplete="off" #form="ngForm" name="f">
+              <form [formGroup]="form" (ngSubmit)="signup()">
                   <div class="field input-field">
-                    <input type="text" placeholder="nom"  id="nom" name="nom" ngModel
-                        #nom="ngModel">
+                    <input type="text" placeholder="nom"  formControlName="nom">
                   </div>
                   <div class="field input-field">
-                    <input type="text" placeholder="prenom" id="prenom" name="prenom" ngModel
-                        #prenom="ngModel">
+                    <input type="text" placeholder="prenom" formControlName="prenom">
                   </div>
                   <div class="field input-field">
-                    <select name="role" id="role" ngModel #role="ngModel" required>
+                    <select name="role" formControlName="role">
                       <option value="" disabled selected hidden>Choisissez un rôle</option>
                       <option value="medecin">Médecin</option>
                       <option value="patient">Patient</option>
                     </select>
                   </div>
                   <div class="field button-field">
-                      <button (click)="signup(form)">Sign-up</button>
+                      <button>Sign-up</button>
                   </div>
                  
               </form>
               <div class="form-link">
                   <span>already have an account? <a href='/login' class="link signup-link">Login</a></span>
               </div>
-          </div>
-          <div class="line"></div>
-          <div class="media-options">
-              <a href="#" class="field facebook">
-                <i class="fa-brands fa-facebook"></i>
-                  <span>Sign-up with Facebook</span>
-              </a>
-          </div>
-          <div class="media-options">
-              <a href="#" class="field google">
-                <i class="fa-brands fa-google"></i>
-                  <span>Sign-up with Google</span>
-              </a>
           </div>
        </div>
     </section>

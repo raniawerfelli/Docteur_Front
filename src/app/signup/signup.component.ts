@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NgForm, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
@@ -17,26 +17,40 @@ export class SignupComponent implements OnInit {
     prenom:'',
     role:'',
   };
+  form!:FormGroup
 ngOnInit(): void {
 }
-constructor(private router:Router){
+constructor(private router:Router,private fb:FormBuilder){
+  this.form=this.fb.group({
+    nom:['',[Validators.required]],
+    prenom:['',Validators.required],
+    role:['',Validators.required]
+  })
 }
 
-signup(f:NgForm){
-  this.user.nom=f.value.nom
-  this.user.prenom=f.value.prenom
-  this.user.role=f.value.role
-  console.log(this.user)
+signup(){
+  if(this.form.valid){
+  this.user.nom=this.form.value.nom
+  this.user.prenom=this.form.value.prenom
+  this.user.role=this.form.value.role
+  //console.log(this.user)
   localStorage.setItem('user',JSON.stringify(this.user))
-  if(f.value.role==='medecin'){
+  if(this.form.value.role==='medecin'){
    
     this.router.navigate(["/signup-medecin"])
   }else{
-    if(f.value.role==='patient'){
+    if(this.form.value.role==='patient'){
       this.router.navigate(["/signup-patient"])
-    }else{
-      alert("s'il vous plait choisir un role")
     }
   }
+}else {
+  if (this.form.controls['nom'].invalid) {
+    alert('Le champ nom est invalide');
+  } else if (this.form.controls['prenom'].invalid) {
+    alert('Le champ role est invalide');
+  } else if (this.form.controls['role'].invalid) {
+    alert('Le champ role est invalide');
+  } 
+}
 }
 }
