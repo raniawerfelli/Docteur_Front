@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Sign-up PATIENT</h1>
+    <div class="popup-boxes">
+      <div class="popup-box">
+        
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="grid-container">
+            <div class="field input-field">
+              <input type="text" placeholder="nom" formControlName="nom" [(ngModel)]="form.value.nom">
+            </div><br>
+            <div class="field input-field">
+              <input type="text" placeholder="prenom" formControlName="prenom">
+            </div><br>
+            <div class="field input-field">
+              <input type="email" placeholder="email" formControlName="email">
+            </div><br>
+            <div class="field input-field">
+                <input type="password" placeholder="password" formControlName="mdp">
+              </div><br>
+            <div class="field input-field">
+                <input type="number" placeholder="téléphone" formControlName="tel">
+            </div><br>
+            <div class="field input-field">
+                <select formControlName="genre">
+                    <option value="" disabled selected hidden>genre</option>
+                    <option value="homme">homme</option>
+                    <option value="femmme">femme</option>
+                  </select>
+            </div><br>
+            <div class="field input-field">
+                <label for="dateNaissance">Date de naissance:</label>
+                <input type="date" id="dateNaissance" formControlName="date_de_naissance">
+              </div><br>
+      </div>
+        <div class="field button-field" colspan="2">
+          <button type="submit">Sign-up</button>
+        </div>
+    </form>
+    </div>  
+    </div>
+      </div>

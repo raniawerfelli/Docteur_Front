@@ -1,27 +1,42 @@
-<link href='https://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
-
-<div id="fback"><div class="girisback"></div><div class="kayitback"></div></div>
-
-<div id="textbox">
-  <div class="toplam">
-    <div class="right">
-      <div id="ic">
-        <h2>Login</h2>
-        <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tousled.</p>
-        <form name="login-form" id="girisyap" id="sidebar-user-login" method="post" onsubmit="return false;">
-    
-          <div class="form-group">
-            <label class="control-label" for="inputNormal">Username</label>
-            <input type="text" name="userName"  cols="50" rows="10" [(ngModel)]="loginObj.username">
+<div class="container1">
+<section class="container">
+  <div class="form login">
+      <div class="form-content">
+          <header>Login</header>
+          <form [formGroup]="form" (ngSubmit)="login()">
+              <div class="field input-field">
+                <input type="email" placeholder="email" formControlName="email">
+              </div>
+              <div class="field input-field">
+                <input type="password" placeholder="Password" formControlName="mdp" >
+                  <i class='bx bx-hide eye-icon'></i>
+              </div>
+              <div class="form-link">
+                  <a href="#" class="forgot-pass">Forgot password?</a>
+              </div>
+              <div class="field button-field">
+                  <button>Login</button>
+              </div>
+             
+          </form>
+          <div class="form-link">
+              <span>Don't have an account? <a href='/signup' class="link signup-link">Signup</a></span>
           </div>
-        <div class="form-group soninpt">
-          <label class="control-label" for="inputNormal">Password</label>
-          <input type="password" name="pwd"  cols="50" rows="10" [(ngModel)]="loginObj.password">
       </div>
-      </form>
-       <button id="girisbtn" (click)="onLogin()">Login</button>
-    <button id="moveleft">Sign Up</button>
-    </div>
-    </div>
-  </div>
+      <div class="line"></div>
+      <div class="media-options">
+          <a href="#" class="field facebook">
+            <i class="fa-brands fa-facebook"></i>
+              <span>Login with Facebook</span>
+          </a>
+      </div>
+      <div class="media-options">
+          <a href="#" class="field google">
+            <i class="fa-brands fa-google"></i>
+              <span>Login with Google</span>
+          </a>
+      </div>
+   </div>
+</section>
 </div>
+<script src="assets/js/script.js"></script>

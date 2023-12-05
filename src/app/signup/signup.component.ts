@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgForm, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -11,29 +12,31 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit {
-  signupUsers:any[]=[];
-signupObj:any={
-  username:'',
-  fullname:'',
-  email:'',
-  password:''
-};
+  user:any={
+    nom:'',
+    prenom:'',
+    role:'',
+  };
 ngOnInit(): void {
-  const localData= localStorage.getItem('signUpUsers');
-  if(localData != null){
-    this.signupUsers=JSON.parse(localData);
-  }
 }
-constructor(){}
+constructor(private router:Router){
+}
 
-onSignUp(){
-  this.signupUsers.push(this.signupObj);
-  localStorage.setItem('signUpUsers', JSON.stringify(this.signupUsers));
-this.signupObj={
-  username:'',
-  fullname:'',
-  email:'',
-  password:''
-};
+signup(f:NgForm){
+  this.user.nom=f.value.nom
+  this.user.prenom=f.value.prenom
+  this.user.role=f.value.role
+  console.log(this.user)
+  localStorage.setItem('user',JSON.stringify(this.user))
+  if(f.value.role==='medecin'){
+   
+    this.router.navigate(["/signup-medecin"])
+  }else{
+    if(f.value.role==='patient'){
+      this.router.navigate(["/signup-patient"])
+    }else{
+      alert("s'il vous plait choisir un role")
+    }
+  }
 }
 }

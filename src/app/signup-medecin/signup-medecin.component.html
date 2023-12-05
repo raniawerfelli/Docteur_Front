@@ -1,0 +1,75 @@
+<div class="container">
+    <h1>Sign-up medecin</h1>
+    <div class="popup-boxes">
+      <div class="popup-box">
+        
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="grid-container">
+            <div class="field input-field">
+              <input type="text" placeholder="nom" formControlName="nom" [(ngModel)]="user_medecin.nom">
+            </div><br>
+            <div class="field input-field">
+              <input type="text" placeholder="prenom" formControlName="prenom" [(ngModel)]="user_medecin.prenom">
+            </div><br>
+            <div class="field input-field">
+              <input type="email" placeholder="email" formControlName="email">
+            </div><br>
+            <div class="field input-field">
+                <input type="password" placeholder="password" formControlName="mdp">
+              </div><br>
+            <div class="field input-field">
+                <input type="number" placeholder="téléphone" formControlName="tel">
+            </div><br>
+            <div class="field input-field">
+                <input type="number" placeholder="latitude" formControlName="latitude">
+            </div><br>
+            <div class="field input-field">
+                <input type="text" placeholder="longitude" formControlName="longitude">
+            </div><br>
+            <div class="field input-field">
+                <input type="text" placeholder="prix de visite" formControlName="prixvisite">
+            </div><br>
+        
+      </div>
+        <div class="field input-field" style="grid-column: 1 / span 3;">
+          <fieldset>
+            <legend>Spécialité</legend>
+            <div *ngFor="let specialite of specialites">
+              <label>
+                <input type="checkbox" [value]="specialite.id" [checked]="checkboxesState[specialite.label]" (change)="onChangeSpecialite(specialite.label)" formControlName="specialites">
+                {{ specialite.label }}
+              </label>
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">ajouter une autre specialite</button>
+          </fieldset>
+        <div class="field button-field" colspan="2">
+          <button type="submit">Sign-up</button>
+        </div>
+       </div> 
+    </form>
+    </div>  
+    </div>
+      </div>
+      <!--modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Nnouveau specialite</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form  [formGroup]="f">
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">specialite:</label>
+                  <textarea class="form-control" id="message-text" formControlName="label"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="ajouterSpecialite()">ajouter</button>
+            </div>
+          </div>
+        </div>
+      </div>

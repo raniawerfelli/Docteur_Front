@@ -1,39 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+import { Patient } from '../model/patient';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule,FormsModule],
-  
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  loginObj: any={
-    username:'',
-    password:''
-  };
-  signupUsers: any;
-  ngOnInit(): void {
-    const localData= localStorage.getItem('signUpUsers');
-  if(localData != null){
-    this.signupUsers=JSON.parse(localData);
+  form!:FormGroup
+  id!:number
+  ngOnInit(): void {}
+  constructor(private formbuilder: FormBuilder,
+    private router: Router,
+    private auth:AuthService){
+      this.form=this.formbuilder.group({
+        email:["",[Validators.email,Validators.required]],
+        mdp:['',Validators.required]
+      })
   }
+  login() {
+    if(this.form.valid){
+    this.getUtilisateur(this.form.value.email,this.form.value.mdp);
+    }else{
+      alert("Veuillez remplir tous les champs")
+    }
   }
-  constructor(){}
+  getUtilisateur(email:string,mdp:string){
+    this.auth.getUser(email,mdp).subscribe((data)=>{
+      console.log(data)
+      if(data.role==='patient'){
+        localStorage.setItem('user_id',data.id)
+        this.router.navigate(['/patient'])
+      }else{
+        if(data.role==='medecin'){
+          localStorage.setItem('user_id',data.id)
+          this.router.navigate(['/medecin'])
+      }
+      }
+    },
+    (e: HttpErrorResponse)=>{
+      if(e.status===404){
+        alert("verifier vos mot de passe ou email")
+      }
+console.log(e.message)
+    })
+  }
  
-onLogin(){
-  const isUserExist=this.signupUsers.find((m: {
-    [x: string]: any; username: any; 
-})=> m.username==this.loginObj.username&& m['password'] ==this.loginObj);
-if(isUserExist!=undefined){
-  alert('user login succ');
-
-}else{
-  alert('wrong');
-}
-}
 }
