@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Demande de Rendez-vous Médical</title>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Demande de Rendez-vous Médical</h2>
+
+    <form action="submit_form.php" method="post">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Adresse e-mail :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Numéro de téléphone :</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="doctor">Choix du médecin :</label>
+      <select id="doctor" name="doctor" required>
+        <option value="dr_smith">Dr. Smith</option>
+        <option value="dr_jones">Dr. Jones</option>
+        <option value="dr_doe">Dr. Doe</option>
+      </select>
+
+      <label for="date">Date souhaitée :</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Heure souhaitée :</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="message">Message additionnel :</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Demander un rendez-vous</button>
+    </form>
+  </div>
+
+</body>
+</html>

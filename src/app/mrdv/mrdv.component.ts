@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-medecin',
+  selector: 'app-mrdv',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './medecin.component.html',
-  styleUrl: './medecin.component.css'
+  templateUrl: './mrdv.component.html',
+  styleUrl: './mrdv.component.css'
 })
-export class MedecinComponent {
-}
+export class MrdvComponent {
 
+}
