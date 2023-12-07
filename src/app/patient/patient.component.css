@@ -1,0 +1,40 @@
+
+  html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  #conseils-sante {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #conseils-sante h2 {
+    color: #333;
+  }
+
+  #conseils-liste {
+    list-style: none;
+    padding: 0;
+  }
+
+  #conseils-liste li {
+    margin-bottom: 10px;
+  }
+  
+ 
+  #prendre-rendez-vous-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #prendre-rendez-vous-btn:hover {
+    background-color: #45a049;
+  }
