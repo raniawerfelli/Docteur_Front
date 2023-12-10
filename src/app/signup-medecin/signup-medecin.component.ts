@@ -38,6 +38,10 @@ export class SignupMedecinComponent {
   checkboxesState: { [key: string]: boolean } = {};
   
   constructor(private fb: FormBuilder,private service:AuthService,private route:Router){
+    const role=localStorage.getItem('role')
+    if(role!="medecin"){
+      this.route.navigate(["/login"])
+    }
     this.form = this.fb.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
@@ -47,11 +51,13 @@ export class SignupMedecinComponent {
       mdp:['',[Validators.required,Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/)]],
       longitude: ['', Validators.required],
       prixvisite: ['', Validators.required],
+      image: ['', [Validators.required, Validators.pattern('.+(\.jpg|\.png)$')]],
       specialites: [this.specialites, Validators.required]
     });
     this.f=new FormGroup({
       id:new FormControl(),
-      label:new FormControl()
+      label:new FormControl(),
+      description:new FormControl()
       
     })
   

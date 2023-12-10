@@ -1,30 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule,DatePipe } from '@angular/common';
 import { AuthService } from '../service/auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Rendezvous } from '../model/rendezvous';
-import { CommonModule, DatePipe } from '@angular/common'; // Import DatePipe instead of DataPipe
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-rendez-vous',
-  templateUrl: './rendez-vous.component.html',
-  styleUrls: ['./rendez-vous.component.css'],
-  standalone:true,
-  imports:[CommonModule],
-  providers: [DatePipe] // Add DatePipe to the providers array
+  selector: 'app-liste-attente',
+  standalone: true,
+  imports: [CommonModule],
+  providers:[DatePipe],
+  templateUrl: './liste-attente.component.html',
+  styleUrl: './liste-attente.component.css'
 })
-export class RendezVousComponent implements OnInit {
+export class ListeAttenteComponent {
   rendez_vous: Rendezvous[] = [];
   nomPrenom: any;
   email: any;
-
-  constructor(private service: AuthService, private datePipe: DatePipe,private route:Router) {} // Use DatePipe here
+  constructor(private service: AuthService, private datePipe: DatePipe,private router:Router) {} // Use DatePipe here
 
   ngOnInit(): void {
     this.email = localStorage.getItem('user_id');
-    const role=localStorage.getItem('role')
+    const role=localStorage.getItem('role');
     if(role!="medecin"){
-      this.route.navigate(["/login"])
+      this.router.navigate(["/login"])
     }
     if (this.email !== null) {
       this.getMedecin(this.email);
@@ -37,19 +35,7 @@ export class RendezVousComponent implements OnInit {
     this.service.getMedecin(email).subscribe(
       (data) => {
         this.nomPrenom = data.nom + ' ' + data.prenom;
-        this.getListRendezvous(data.id);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-      }
-    );
-  }
-
-  getListRendezvous(id: any) {
-    this.service.getRendezvousWithValidationAttenteForMedecin(id).subscribe(
-      (data: Rendezvous[]) => {
-        console.log("Liste des rendez-vous:", data);
-        this.rendez_vous = data;
+        this.getAcceptedRendezvous(data.id);
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
@@ -82,6 +68,18 @@ export class RendezVousComponent implements OnInit {
         this.getMedecin(this.email)
       }
     })
-
+  }
+  getAcceptedRendezvous(id:any){
+    this.service.getByDateAndValidation(id).subscribe((data)=>{
+      console.log(data)
+      this.rendez_vous = data;
+    },
+    (e:HttpErrorResponse)=>{
+      console.log(e.message)
+    })
+  }
+  deconncter(){
+localStorage.clear();
+this.router.navigate(["/home"])
   }
 }

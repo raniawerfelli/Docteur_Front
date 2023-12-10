@@ -12,6 +12,7 @@ export interface Medecin {
     longitude:number,
     latitude:number,
     prixvisite:number,
+    image:string,
     lesDatedetravail:Datedetravail[]
     specialites:Specialite[],
 }

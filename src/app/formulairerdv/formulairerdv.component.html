@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Demande de Rendez-vous Médical</title>
-</head>
-<body>
+<div class="container" *ngIf="medecins && medecins.length">
+  <h2>Demande de Rendez-vous Médical</h2>
 
-  <div class="container">
-    <h2>Demande de Rendez-vous Médical</h2>
+  <form [formGroup]="form" (ngSubmit)="creer()">
+    <label for="phone">Numéro de téléphone :</label>
+    <input type="tel" id="phone" name="phone" formControlName="tel">
+      
+    <label for="doctor">Choix du médecin :</label>
+    <select id="doctor" name="doctor" formControlName="medecin" (change)="onDoctorSelection()">
+      <option [value]="d.email" *ngFor="let d of medecins">{{ d.nom }}</option>
+    </select>
 
-    <form action="submit_form.php" method="post">
-      <label for="name">Nom complet :</label>
-      <input type="text" id="name" name="name" required>
+    <label for="date">Date souhaitée :</label>
+    <input type="date" id="date" name="date" formControlName="dateRendezVous">
+      
+    <label for="time">Heure souhaitée :</label>
+    <select id="time" name="time" formControlName="heure">
+      <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+    </select>  
+    <button type="submit">Demander un rendez-vous</button>
+  </form>
+</div>
 
-      <label for="email">Adresse e-mail :</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Numéro de téléphone :</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <label for="doctor">Choix du médecin :</label>
-      <select id="doctor" name="doctor" required>
-        <option value="dr_smith">Dr. Smith</option>
-        <option value="dr_jones">Dr. Jones</option>
-        <option value="dr_doe">Dr. Doe</option>
-      </select>
-
-      <label for="date">Date souhaitée :</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="time">Heure souhaitée :</label>
-      <input type="time" id="time" name="time" required>
-
-      <label for="message">Message additionnel :</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-
-      <button type="submit">Demander un rendez-vous</button>
-    </form>
-  </div>
-
-</body>
-</html>
+<div *ngIf="!medecins || !medecins.length">
+  <p>Aucun médecin disponible pour le moment.</p>
+</div>

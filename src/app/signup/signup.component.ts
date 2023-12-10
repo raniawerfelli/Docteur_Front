@@ -33,13 +33,14 @@ signup(){
   this.user.nom=this.form.value.nom
   this.user.prenom=this.form.value.prenom
   this.user.role=this.form.value.role
-  //console.log(this.user)
+  console.log(this.user)
   localStorage.setItem('user',JSON.stringify(this.user))
   if(this.form.value.role==='medecin'){
-   
+  localStorage.setItem('role','medecin')
     this.router.navigate(["/signup-medecin"])
   }else{
     if(this.form.value.role==='patient'){
+      localStorage.setItem('role','patient')
       this.router.navigate(["/signup-patient"])
     }
   }

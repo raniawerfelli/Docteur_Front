@@ -20,6 +20,10 @@ user_patient:any={
   prenom:''
 }
 constructor(private fb: FormBuilder,private service:AuthService,private route:Router){
+  const role=localStorage.getItem('role')
+    if(role!="patient"){
+      this.route.navigate(["/login"])
+    }
   this.form = this.fb.group({
     nom: ['', Validators.required],
     prenom: ['', Validators.required],

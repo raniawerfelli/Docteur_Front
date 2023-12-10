@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
-import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 
 @Component({
@@ -10,7 +9,7 @@ import { SignupComponent } from "./signup/signup.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, HomeComponent, LoginComponent, SignupComponent]
+    imports: [CommonModule, RouterOutlet, HomeComponent, SignupComponent]
 })
 export class AppComponent {
   title = 'medecin';

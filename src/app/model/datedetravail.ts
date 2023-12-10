@@ -1,6 +1,7 @@
-export interface Datedetravail {
-    id_travail:number,
-    jour:number,
-    heure_debut:number,
-    heure_fin:number
+export interface Datedetravail {    
+    jour_debut:any,
+    jour_fin:any
+    heure_debut:any,
+    heure_fin:any,
+    label:any
 }

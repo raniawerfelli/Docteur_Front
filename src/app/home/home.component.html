@@ -3,14 +3,9 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contactexample.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
+        
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
     </div>
   </div>
@@ -19,72 +14,40 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="home">Medilab</a></h1>
-      <!-- Décommentez ci-dessous si vous préférez utiliser un logo image -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      <h1 class="logo me-auto"><a href="home">Mon Docteur</a></h1>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="#about">À propos</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Spécialité</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Médecins</a></li>
-          <li class="dropdown"><a href="#"><span>Déroulant</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Déroulant 1</a></li>
-              <li class="dropdown"><a href="#"><span>Déroulant Profond</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Déroulant Profond 1</a></li>
-                  <li><a href="#">Déroulant Profond 2</a></li>
-                  <li><a href="#">Déroulant Profond 3</a></li>
-                  <li><a href="#">Déroulant Profond 4</a></li>
-                  <li><a href="#">Déroulant Profond 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Déroulant 2</a></li>
-              <li><a href="#">Déroulant 3</a></li>
-              <li><a href="#">Déroulant 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" (click)="scrollToSection('hero')">Accueil</a></li>
+          <li><a class="nav-link scrollto" (click)="scrollToSection('specialite')">Spécialités</a></li>
+          <li><a class="nav-link scrollto" (click)="scrollToSection('doctors')">Médecins</a></li>
+          <li><a class="nav-link scrollto" href="login">Login</a></li>
+          <li><a class="nav-link scrollto" href="signup">SignUp</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
     
     </div>
-  </header><!-- Fin de l'en-tête -->
-
-  <!-- ======= Section Hero ======= -->
+  </header>
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Bienvenue chez Medilab</h1>
+      <h1>Bienvenue</h1>
       <h2>Votre plateforme de rendez-vous médical préférée!</h2>
-      <a href="#appointment" class="btn-get-started scrollto">Inscription</a>
+      <a href="/login" class="btn-get-started scrollto">Inscription</a>
     </div>
-  </section><!-- Fin du héros -->
+  </section>
 
   <main id="main">
- 
-
-  
-      <!-- ======= Why Us Section ======= -->
       <section id="why-us" class="why-us">
         <div class="container">
   
           <div class="row">
             <div class="col-lg-4 d-flex align-items-stretch">
               <div class="content">
-                <h3>Pourquoi choisir Medilab?</h3>
+                <h3>Surmonter l'épreuve du cance</h3>
                 <p>
-                  Medilab simplifie la prise de rendez-vous médicaux en ligne, offrant une expérience conviviale et efficace.
-                   Avec une interface intuitive et des fonctionnalités pratiques, choisissez MediLab pour une gestion aisée de vos
-                    rendez-vous médicaux, où la santé rencontre la technologie
+                  Le Dr. Sophie Martin partage son expérience en tant que médecin confrontée à un diagnostic de cancer inattendu. À travers son livre inspirant, elle détaille son parcours émotionnel, les défis médicaux et les leçons tirées de sa lutte contre la maladie, offrant ainsi de l'espoir et du réconfort aux patients et à leurs familles.
                   </p>
-                <div class="text-center">
-                  <a href="#" class="more-btn">En savoir plus <i class="bx bx-chevron-right"></i></a>
-                </div>
               </div>
             </div>
             <div class="col-lg-8 d-flex align-items-stretch">
@@ -93,35 +56,33 @@
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-receipt"></i>
-                      <h4>Innovation Santé</h4>
+                      <h4>Vivre avec une Maladie Chronique</h4>
                       <p>Notre plateforme vous permet de planifier vos rendez-vous médicaux en toute simplicité, combinant technologie de pointe et services de santé</p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-cube-alt"></i>
-                      <h4>Facilité d'utilisation</h4>
-                      <p>Medilab offre une interface intuitive qui rend la prise de rendez-vous médicaux en ligne aussi simple que quelques clics</p>
+                      <h4>Rétablissement après un Accident Majeur</h4>
+                      <p>Sarah Leclerc partage son histoire inspirante sur la façon dont elle a surmonté un grave accident de voiture et transformé cette épreuve en une opportunité de renaissance. En tant qu'athlète paralympique et conférencière, elle motive les autres à croire en leur résilience et à surmonter les obstacles.</p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-images"></i>
-                      <h4>Sécurité et Confidentialité</h4>
-                      <p>Notre équipe assure la sécurité de vos données médicales et garantit une confidentialité totale</p>
+                      <h4>Perte de Poids et Transformation de Vie</h4>
+                      <p>Martin Lambert partage son propre parcours de transformation physique et émotionnelle, passant d'un mode de vie sédentaire à une perte de poids significative et à une meilleure santé. En tant que coach en nutrition, il guide les autres dans leur voyage vers un mode de vie plus sain et équilibré.</p>
                     </div>
                   </div>
                 </div>
-              </div><!-- End .content-->
+              </div>
             </div>
           </div>
   
         </div>
-      </section><!-- End Why Us Section -->
-  
-    
+      </section>
       <!-- ======= Counts Section ======= -->
-      <section id="counts" class="counts">
+    <!--  <section id="counts" class="counts">
         <div class="container">
   
           <div class="row">
@@ -161,234 +122,28 @@
           </div>
   
         </div>
-      </section><!-- End Counts Section -->
+      </section>--><!-- End Counts Section -->
   
       <!-- ======= Services Section ======= -->
-      <section id="services" class="services">
+      <section id="specialite" class="services">
         <div class="container">
   
           <div class="section-title">
-            <h2>Services</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Specialites</h2>
+            <p>Les spécialités médicales couvrent un large éventail de domaines de la santé, chacune se concentrant sur des aspects spécifiques du diagnostic, du traitement et de la gestion des problèmes de santé..</p>
           </div>
-  
           <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let s of specialites">
               <div class="icon-box">
                 <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                <h4><a href="">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-pills"></i></div>
-                <h4><a href="">Sed ut perspiciatis</a></h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-hospital-user"></i></div>
-                <h4><a href="">Magni Dolores</a></h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-dna"></i></div>
-                <h4><a href="">Nemo Enim</a></h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-wheelchair"></i></div>
-                <h4><a href="">Dele cardo</a></h4>
-                <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-              <div class="icon-box">
-                <div class="icon"><i class="fas fa-notes-medical"></i></div>
-                <h4><a href="">Divera don</a></h4>
-                <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-              </div>
-            </div>
-  
-          </div>
-  
-        </div>
-      </section><!-- End Services Section -->
-  
-      <!-- ======= Appointment Section ======= -->
-      <section id="appointment" class="appointment section-bg">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>Make an Appointment</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-          </div>
-  
-          <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-4 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 form-group mt-3">
-                <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select name="department" id="department" class="form-select">
-                  <option value="">Select Department</option>
-                  <option value="Department 1">Department 1</option>
-                  <option value="Department 2">Department 2</option>
-                  <option value="Department 3">Department 3</option>
-                </select>
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select name="doctor" id="doctor" class="form-select">
-                  <option value="">Select Doctor</option>
-                  <option value="Doctor 1">Doctor 1</option>
-                  <option value="Doctor 2">Doctor 2</option>
-                  <option value="Doctor 3">Doctor 3</option>
-                </select>
-                <div class="validate"></div>
-              </div>
-            </div>
-  
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Make an Appointment</button></div>
-          </form>
-  
-        </div>
-      </section><!-- End Appointment Section -->
-  
-      <!-- ======= Departments Section ======= -->
-      <section id="departments" class="departments">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>Departments</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-          </div>
-  
-          <div class="row gy-4">
-            <div class="col-lg-3">
-              <ul class="nav nav-tabs flex-column">
-                <li class="nav-item">
-                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-9">
-              <div class="tab-content">
-                <div class="tab-pane active show" id="tab-1">
-                  <div class="row gy-4">
-                    <div class="col-lg-8 details order-2 order-lg-1">
-                      <h3>Cardiology</h3>
-                      <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                      <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
-                    </div>
-                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab-2">
-                  <div class="row gy-4">
-                    <div class="col-lg-8 details order-2 order-lg-1">
-                      <h3>Et blanditiis nemo veritatis excepturi</h3>
-                      <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                      <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
-                    </div>
-                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab-3">
-                  <div class="row gy-4">
-                    <div class="col-lg-8 details order-2 order-lg-1">
-                      <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                      <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                      <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
-                    </div>
-                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab-4">
-                  <div class="row gy-4">
-                    <div class="col-lg-8 details order-2 order-lg-1">
-                      <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                      <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                      <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
-                    </div>
-                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab-5">
-                  <div class="row gy-4">
-                    <div class="col-lg-8 details order-2 order-lg-1">
-                      <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                      <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                      <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                    </div>
-                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                      <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
-                    </div>
-                  </div>
-                </div>
+                <h4><a href="">{{s.label}}</a></h4>
+                <p>{{s.description}}</p>
               </div>
             </div>
           </div>
   
         </div>
-      </section><!-- End Departments Section -->
-  
-      <!-- ======= Doctors Section ======= -->
+      </section>
       <section id="doctors" class="doctors">
         <div class="container">
   
@@ -399,13 +154,15 @@
   
           <div class="row">
   
-            <div class="col-lg-6">
+            <div class="col-lg-6" *ngFor="let m of medecins">
               <div class="member d-flex align-items-start">
-                <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+                <div class="pic"><img src="assets/img/doctors/{{ m?.image ? getLastPartOfPath(m.image) : '' }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>Chief Medical Officer</span>
-                  <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                  <h4>{{m.nom}}</h4>
+                  <div *ngFor="let s of m.specialites">
+                  <span >{{s.label}}</span>
+                  <p>{{s.description}}</p>
+                  </div>
                   <div class="social">
                     <a href=""><i class="ri-twitter-fill"></i></a>
                     <a href=""><i class="ri-facebook-fill"></i></a>
@@ -416,344 +173,26 @@
               </div>
             </div>
   
-            <div class="col-lg-6 mt-4 mt-lg-0">
-              <div class="member d-flex align-items-start">
-                <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Anesthesiologist</span>
-                  <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                  <div class="social">
-                    <a href=""><i class="ri-twitter-fill"></i></a>
-                    <a href=""><i class="ri-facebook-fill"></i></a>
-                    <a href=""><i class="ri-instagram-fill"></i></a>
-                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                  </div>
-                </div>
-              </div>
             </div>
-  
-            <div class="col-lg-6 mt-4">
-              <div class="member d-flex align-items-start">
-                <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>William Anderson</h4>
-                  <span>Cardiology</span>
-                  <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                  <div class="social">
-                    <a href=""><i class="ri-twitter-fill"></i></a>
-                    <a href=""><i class="ri-facebook-fill"></i></a>
-                    <a href=""><i class="ri-instagram-fill"></i></a>
-                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-6 mt-4">
-              <div class="member d-flex align-items-start">
-                <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Amanda Jepson</h4>
-                  <span>Neurosurgeon</span>
-                  <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                  <div class="social">
-                    <a href=""><i class="ri-twitter-fill"></i></a>
-                    <a href=""><i class="ri-facebook-fill"></i></a>
-                    <a href=""><i class="ri-instagram-fill"></i></a>
-                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-          </div>
   
         </div>
-      </section><!-- End Doctors Section -->
-  
-      <!-- ======= Frequently Asked Questions Section ======= -->
-      <section id="faq" class="faq section-bg">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>FAQ</h2>
-            <p>Cette section vise à vous fournir des réponses claires et informatives pour vous guider à travers votre expérience sur notre plateforme. Parcourez ces questions fréquentes pour obtenir des informations détaillées </p>
-          </div>
-  
-          <div class="faq-list">
-            <ul>
-              <li data-aos="fade-up">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Comment puis-je prendre un rendez-vous sur MediLab? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                  <p>
-                    Pour prendre un rendez-vous, connectez-vous à votre compte MediLab, choisissez le professionnel de la santé désiré, sélectionnez une date et une heure convenables, puis confirmez votre rendez-vous. Vous recevrez une confirmation par e-mail.</p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed"> Puis-je annuler ou modifier un rendez-vous existant? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Oui, vous pouvez modifier ou annuler un rendez-vous en accédant à la section "Mes Rendez-vous" sur votre compte MediLab. Sélectionnez le rendez-vous en question et suivez les instructions pour apporter les modifications nécessaires. </p>
-                </div>
-              </li>
-  
-              <li data-aos="fade-up" data-aos-delay="200">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed"> Mes informations médicales sont-elles sécurisées sur MediLab? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Absolument. MediLab accorde une importance capitale à la sécurité des données. Toutes les informations médicales sont cryptées et stockées de manière sécurisée, conformément aux normes de confidentialité les plus strictes</p>
-                </div>
-              </li>
-  
-              
-  
-            </ul>
-          </div>
-  
-        </div>
-      </section><!-- End Frequently Asked Questions Section -->
-  
-      
-  
-      <!-- ======= Gallery Section ======= -->
-      <section id="gallery" class="gallery">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>Galerie</h2>
-            <p>Explorez notre galerie médicale, un espace visuel captivant qui illustre notre engagement envers la santé et le bien-être. Parcourez des images mettant en lumière nos installations modernes, notre équipe dévouée de professionnels de la santé, et les technologies innovantes qui façonnent notre approche de la médecine</p>
-          </div>
-        </div>
-  
-        <div class="container-fluid">
-          <div class="row g-0">
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-5.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-6.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-7.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-8.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-  
-          </div>
-  
-        </div>
-      </section><!-- End Gallery Section -->
-  
-      <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>Contact</h2>
-            <p>Votre avis compte ! Si vous avez des questions, besoin d'informations supplémentaires ou souhaitez déposer une réclamation, veuillez remplir le formulaire ci-dessous. Nous sommes là pour vous assister et améliorer constamment nos services</p>
-          </div>
-        </div>
-  
-        <div>
-          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.776648025566!2d10.32405631482577!3d36.87281063992999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x40c9ecb98de16691!2sLa%20Marsa!5e0!3m2!1sen!2stn!4v1586908748647!5m2!1sen!2stn" frameborder="0" allowfullscreen></iframe>
-        </div>
-  
-        <div class="container">
-          <div class="row mt-5">
-  
-            <div class="col-lg-4">
-              <div class="info">
-                <div class="address">
-                  <i class="bi bi-geo-alt"></i>
-                  <h4>Localisation:</h4>
-                  <p>20 Avenue Habib Bourguiba, La Marsa, Tunisie</p>
-                </div>
-  
-                <div class="email">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info&#64;contact.com</p>
-                </div>
-  
-                <div class="phone">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+216 71894258</p>
-                </div>
-  
-              </div>
-  
-            </div>
-  
-            <div class="col-lg-8 mt-5 mt-lg-0">
-  
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" required>
-                  </div>
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" required>
-                  </div>
-                </div>
-                <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" required>
-                </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">En cours ..</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Votre message a été bien envoyé. Merci !</div>
-                </div>
-                <div class="text-center"><button type="submit">Envoyer le message</button></div>
-              </form>
-  
-            </div>
-  
-          </div>
-  
-        </div>
-      </section><!-- End Contact Section -->
-  
-    </main><!-- End #main -->
-  
-    <!-- ======= Pied de page ======= -->
+      </section>
 <footer id="footer">
 
-  <div class="footer-top">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6 footer-contact">
-          <h3>Medilab</h3>
-          <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            États-Unis <br><br>
-            <strong>Téléphone :</strong> +1 5589 55488 55<br>
-            <strong>Email :</strong> infoxample.com<br>
-          </p>
-        </div>
-
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Liens utiles</h4>
-          <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">À propos de nous</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Conditions de service</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Politique de confidentialité</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Nos services</h4>
-          <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Conception Web</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Développement Web</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Gestion de produits</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Conception graphique</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-6 footer-newsletter">
-          <h4>Abonnez-vous à notre newsletter</h4>
-          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="S'abonner">
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
+  
   <div class="container d-md-flex py-4">
 
     <div class="me-md-auto text-center text-md-start">
       <div class="copyright">
-        &copy; Droit d'auteur <strong><span>Medilab</span></strong>. Tous droits réservés
+        &copy; Droit d'auteur <strong><span>Chedi Trabelsi&Rania Werfelli</span></strong>. Tous droits réservés
       </div>
-      <div class="credits">
-        <!-- Tous les liens dans le pied de page doivent rester intacts. -->
-        <!-- Vous pouvez supprimer les liens uniquement si vous avez acheté la version pro. -->
-        <!-- Informations de licence : https://bootstrapmade.com/license/ -->
-        <!-- Achetez la version pro avec un formulaire de contact PHP/AJAX fonctionnel : https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
-        Conçu par <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      
     </div>
     <div class="social-links text-center text-md-right pt-3 pt-md-0">
-      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/chedi-trabelsi-0b8861230/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/chedi-trabelsi-0b8861230/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
     </div>
   </div>
-</footer><!-- Fin du pied de page -->
-
-  
-   
-   
-  
-  </body>
+</footer>
   
   

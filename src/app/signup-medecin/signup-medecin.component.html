@@ -29,7 +29,11 @@
             <div class="field input-field">
                 <input type="text" placeholder="prix de visite" formControlName="prixvisite">
             </div><br>
-        
+            <div class="field input-field">
+              <input type="file" placeholder="votre photo" formControlName="image">
+          </div><br>
+      
+
       </div>
         <div class="field input-field" style="grid-column: 1 / span 3;">
           <fieldset>
@@ -55,14 +59,15 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Nnouveau specialite</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau specialite</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form  [formGroup]="f">
                 <div class="mb-3">
                   <label for="message-text" class="col-form-label">specialite:</label>
-                  <textarea class="form-control" id="message-text" formControlName="label"></textarea>
+                  <input type="text" class="form-control" formControlName="label"><br>
+                  <textarea class="form-control" id="message-text" formControlName="description"></textarea>
                 </div>
               </form>
             </div>
