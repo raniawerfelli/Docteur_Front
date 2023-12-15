@@ -14,6 +14,7 @@ import { AuthService } from '../service/auth.service';
 })
 export class ListePatientComponent {
   email!:any
+  patientobserv!:any
   nomPrenom!:any
   patients!:any
   patientsExamine!:any
@@ -39,6 +40,7 @@ export class ListePatientComponent {
         this.nomPrenom = data.nom + ' ' + data.prenom;
         this.getAllPatientForMedecin(data.id)
         this.getAllPatientExamine(data.id)
+       
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
@@ -59,11 +61,26 @@ export class ListePatientComponent {
       }
     );
   }
+  setSelectedPatientId(patientId: number): void {
+    this.getAllRendezvousByPatient(patientId)
+  }
   getAllPatientExamine(id:any){
     this.service.getAllPatientExamine(id).subscribe(
       (data) => {
-        console.log("data",data)
+        console.log("endezvous",data)
         this.patientsExamine=data
+        //this.getAllRendezvousByPatient(data[0].patient.id)
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    );
+  }
+  getAllRendezvousByPatient(id:number){
+    this.service.getllRendezvousForPatient(id).subscribe(
+      (data) => {
+        console.log("rendezvous",data)
+        this.patientobserv=data
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
@@ -73,6 +90,9 @@ export class ListePatientComponent {
   deconnecter(){
     localStorage.clear()
     this.route.navigate(["/home"])
+  }
+  getObservation(id:number){
+    console.log("obser",this.getAllRendezvousByPatient(id))
   }
 
 }

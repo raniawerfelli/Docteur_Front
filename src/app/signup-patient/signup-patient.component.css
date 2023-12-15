@@ -1,0 +1,44 @@
+.container {
+    background-color: #016dcb;
+    padding: 20px;
+  }
+  
+  .container h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  .field {
+    margin-bottom: 10px;
+  }
+  
+  legend,
+  label {
+    color: #fff;
+  }
+  
+  .input-field input,
+  .input-field textarea,
+  .input-field select,
+  .input-field input[type="date"] {
+    width: calc(100% - 18px);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Pour inclure la bordure dans la largeur */
+  }
+  
+  .field.button-field button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #016dcb; /* Couleur du fond */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .field.button-field button:hover {
+    background-color: #014b84; /* Nouvelle couleur au survol */
+  }
+  

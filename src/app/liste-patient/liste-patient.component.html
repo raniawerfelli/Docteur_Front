@@ -74,7 +74,7 @@
               <td>{{p?.patient?.nom}}</td>
               <td>{{p?.patient?.prenom}}</td>  
               <td>{{formatDate(p?.patient?.date_de_naissance)}}</td>
-              <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <td><button type="button" class="btn btn-primary" (click)="setSelectedPatientId(p?.patient?.id)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 voir la fiche
               </button></td>
           </tr>
@@ -93,7 +93,7 @@
       <div class="modal-body">
         <table>
           <tr><th>date de rendezvous</th><th>observation</th></tr>
-          <tr *ngFor="let o of patientsExamine"><td>{{formatDate(o.dateRendezVous)}}</td><td>{{o.observation}}</td></tr>
+          <tr *ngFor="let o of patientobserv" ><td>{{formatDate(o.dateRendezVous)}}</td><td>{{o.observation}}</td></tr>
         </table>
       </div>
       <div class="modal-footer">
