@@ -19,6 +19,7 @@ export class CalendarComponent implements AfterViewInit {
   nomPrenom: any;
   medecin: any;
   email: any;
+  rendezvous!:any
   events: Datedetravail[] = [];
 
   constructor(private elementRef: ElementRef, private service: AuthService,private route:Router) {
@@ -173,6 +174,7 @@ export class CalendarComponent implements AfterViewInit {
   
 
   getEventByMedecin(id: any) {
+    this.getLesAcceptesRendezvous(id);
     this.service.getEventBymedecin(id).subscribe(
       (data: Datedetravail[]) => {
         console.log(data);
@@ -210,5 +212,13 @@ export class CalendarComponent implements AfterViewInit {
   deconnecter(){
     localStorage.clear()
     this.route.navigate(["/home"])
+  }
+  getLesAcceptesRendezvous(id:any){
+    this.service.getRendezvousWithValidationAccepteForMedecin(id).subscribe((data)=>{
+      this.rendezvous=data
+    },
+    (e:HttpErrorResponse)=>{
+      console.log(e.message)
+    })
   }
 }

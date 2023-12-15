@@ -16,7 +16,7 @@ export class ListePatientComponent {
   email!:any
   nomPrenom!:any
   patients!:any
-  patiensExamine!:any
+  patientsExamine!:any
   constructor(private route:Router,private datepipe:DatePipe,private service:AuthService){
 
   }
@@ -62,8 +62,8 @@ export class ListePatientComponent {
   getAllPatientExamine(id:any){
     this.service.getAllPatientExamine(id).subscribe(
       (data) => {
-        console.log(data)
-        this.patiensExamine=data
+        console.log("data",data)
+        this.patientsExamine=data
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);

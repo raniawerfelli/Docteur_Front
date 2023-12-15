@@ -12,12 +12,12 @@ import { Datedetravail } from '../model/datedetravail';
   
 })
 export class AuthService {
-url_medecin="http://localhost:8080/medecin"
-url_patient="http://localhost:8080/patient"
-url_user="http://localhost:8080/utilisateur"
-url_specialite="http://localhost:8080/specialite"
-url_rendezvous="http://localhost:8080/rendezvous"
-url_datedetravail="http://localhost:8080/datedetravail"
+url_medecin="http://localhost:8081/medecin"
+url_patient="http://localhost:8081/patient"
+url_user="http://localhost:8081/utilisateur"
+url_specialite="http://localhost:8081/specialite"
+url_rendezvous="http://localhost:8081/rendezvous"
+url_datedetravail="http://localhost:8081/datedetravail"
   constructor(private http: HttpClient) { }
 
   public getMedecin(email: string): Observable<Medecin> {
@@ -95,5 +95,4 @@ url_datedetravail="http://localhost:8080/datedetravail"
   public getllRendezvousForPatient(id_patient:any):Observable<any>{
     return this.http.get<any>(`${this.url_rendezvous}/allRendezVousByPatient/${id_patient}`);
   }
-
 }

@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "282a7453-1507-4b71-864e-b66a18c8664a",
+		"name": "docteurTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25438166"
+	},
+	"item": [
+		{
+			"name": "dossierGet",
+			"item": [
+				{
+					"name": "GetUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/utilisateur/login/chedi@gmail.com/chedi@123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"utilisateur",
+								"login",
+								"chedi@gmail.com",
+								"chedi@123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMedecin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/medecin/getMedecin/chedi@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"medecin",
+								"getMedecin",
+								"chedi@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPatient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/patient/getPatient/rania@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patient",
+								"getPatient",
+								"rania@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRendezvous",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/rendezvous/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"rendezvous",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dossierPost",
+			"item": [
+				{
+					"name": "PostPatient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nom\": \"NomDuPatient\",\r\n    \"prenom\": \"PrenomDuPatient\",\r\n    \"email\": \"email@example.com\",\r\n    \"mdp\": \"MotDePasseDuPatient\",\r\n    \"tel\": \"1234567890\",\r\n    \"role\": \"patient\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8081/patient/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"patient",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostMedecin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nom\": \"NomDuPatient\",\r\n    \"prenom\": \"PrenomDuPatient\",\r\n    \"email\": \"email@example.com\",\r\n    \"mdp\": \"MotDePasseDuPatient\",\r\n    \"tel\": \"1234567890\",\r\n    \"role\": \"medecin\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/medecin/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"medecin",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostRendezvous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id_rendezvous\":1,\r\n\"validation\":\"en attente\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/rendezvous/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"rendezvous",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

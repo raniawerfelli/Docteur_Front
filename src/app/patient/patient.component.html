@@ -60,7 +60,7 @@
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>etat</h3>
+          <h3>{{etat}}</h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Demande</h4>
@@ -73,9 +73,9 @@
   
     <br><br>
     <div id="conseils-sante">
-        <h2>Conseils de Santé</h2>
-        <ul id="conseils-liste"></ul>
-      </div>
+      <h2>Conseils de Santé</h2>
+      <ul id="conseils-liste"></ul>
+    </div>
   </div>
 
   
@@ -115,27 +115,24 @@ function w3_close() {
 }
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Exemple de conseils de santé (à remplacer par vos données dynamiques)
-      const conseilsSante = [
-        "Mangez équilibré et varié.",
-        "Faites de l'exercice régulièrement.",
-        "Assurez-vous de bien dormir.",
-        "Buvez suffisamment d'eau chaque jour.",
-        "Évitez le tabac et la consommation excessive d'alcool."
-      ];
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const conseilsSante = [
+      "Mangez équilibré et varié.",
+      "Faites de l'exercice régulièrement.",
+      "Assurez-vous de bien dormir.",
+      "Buvez suffisamment d'eau chaque jour.",
+      "Évitez le tabac et la consommation excessive d'alcool."
+    ];
 
-      // Sélectionnez la liste des conseils
-      const conseilsListe = document.getElementById('conseils-liste');
+    const conseilsListe = document.getElementById('conseils-liste');
 
-      // Ajoutez chaque conseil à la liste
-      conseilsSante.forEach(conseil => {
-        const li = document.createElement('li');
-        li.textContent = conseil;
-        conseilsListe.appendChild(li);
-      });
+    conseilsSante.forEach(conseil => {
+      const li = document.createElement('li');
+      li.textContent = conseil;
+      conseilsListe.appendChild(li);
     });
-      </script>
+  });
+</script>
 </body>
 </html>
