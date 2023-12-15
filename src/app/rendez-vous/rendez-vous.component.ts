@@ -72,6 +72,10 @@ export class RendezVousComponent implements OnInit {
     })
 
   }
+  deconnecter(){
+    localStorage.clear()
+    this.route.navigate(["/home"])
+  }
   refuserRendezVous(r:any){
     this.service.annulerRendezvous(r).subscribe((data)=>{
       console.log(data);

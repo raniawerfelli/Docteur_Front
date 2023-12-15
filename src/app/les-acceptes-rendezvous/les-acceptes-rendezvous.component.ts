@@ -57,4 +57,8 @@ getLesAcceptes(id:any){
 formatDate(date: Date): string {
   return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
 }
+deconnecter(){
+  localStorage.clear()
+  this.route.navigate(["/home"])
+}
 }
